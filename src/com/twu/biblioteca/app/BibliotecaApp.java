@@ -6,6 +6,6 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         BibliotecaService bibliotecaService = new BibliotecaService();
-        bibliotecaService.start();
+        bibliotecaService.showWelcomeMessage();
     }
 }

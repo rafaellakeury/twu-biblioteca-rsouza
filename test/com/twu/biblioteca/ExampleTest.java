@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 
+import com.twu.biblioteca.constants.BibliotecaBooksList;
 import com.twu.biblioteca.service.BibliotecaService;
 import org.junit.After;
 import org.junit.Before;
@@ -14,8 +15,10 @@ import static org.junit.Assert.assertEquals;
 public class ExampleTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    BibliotecaService bibliotecaService = new BibliotecaService();
 
-    @Test   
+
+    @Test
     public void test() {
         assertEquals(1, 1);
     }
@@ -31,9 +34,15 @@ public class ExampleTest {
     }
 
     @Test
-    public void applicationStartShowsWelcomeMessage(){
-        BibliotecaService bibliotecaService = new BibliotecaService();
-        bibliotecaService.start();
+    public void applicationStartShowsWelcomeMessage() {
+        bibliotecaService.showWelcomeMessage();
         assertEquals("Welcome to Bangalore library!", outContent.toString());
+
+    }
+
+    @Test
+    public void applicationShowsBooksListAfterWelcomeMessage() {
+        bibliotecaService.showBooksList();
+        assertEquals(BibliotecaBooksList.libraryBooksList.toString(), outContent.toString());
     }
 }
